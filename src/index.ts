@@ -1,30 +1,38 @@
 const makeGrid = () => {
     const row = new Array(10);
-    // row.fill('⬜');
-
     const grid = new Array(10);
     grid.fill(row);
-
     return grid;
 }
 
 const doTheSquaresThing = (N: number) => {
     const grid = makeGrid();
 
+    // Ensure number is between 0 and 9
     if (N < 0 || N > 9) {
         return grid;
     }
 
-    for (let i = 0; i <= N; i++) {
-        const start = 0;
-        const end = i + 1;
-        const shallowCopy = [...grid[i]]
-        shallowCopy.fill('🟦', start, end);
+    const generateRow = (
+        currentRow: number,
+    ) => {
+        const pattern = ['🟦', '🟥', '🟥'];
+        const longAssPattern = new Array(7).fill(pattern).flat();
 
-        const emptyStart = end;
-        const emptyEnd = 10;
-        shallowCopy.fill('⬜', emptyStart, emptyEnd);
-        grid[i] = [...shallowCopy];
+        const startingPoint = currentRow - 1;
+        const endingPoint = (currentRow * 2) - 1;
+        const finalRow = longAssPattern.slice(startingPoint, endingPoint);
+
+        while (finalRow.length < 10) {
+            finalRow.push("⬜");
+        }
+
+        return finalRow;
+    }
+
+    for (let rowIndex = 0; rowIndex <= N; rowIndex++) {
+        const rowNumber = rowIndex + 1;
+        grid[rowIndex] = generateRow(rowNumber);
     }
 
     return grid.reverse();
