@@ -4,4 +4,9 @@ This is an attempt at **an unnamed squares pattern challenge**, where no explici
 
 My interpretation of the task at hand is detailed in [INTERPRETATION.md](INTERPRETATION.md).
 
+## Running The Application
+
+Install all dependencies with `npm i`
+Run with `npm start`
+
 Enjoy!
