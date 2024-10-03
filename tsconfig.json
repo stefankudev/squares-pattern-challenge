@@ -1,0 +1,18 @@
+{
+    "extends": "@tsconfig/node20/tsconfig.json",
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "**/*.test.*"
+    ],
+    "compilerOptions": {
+        "outDir": "./out",
+        "moduleResolution": "Bundler",
+        "module": "ESNext",
+        "lib": [
+            "DOM",
+            "ESNext"
+        ]
+    }
+}
