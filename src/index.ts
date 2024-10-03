@@ -27,7 +27,7 @@ export const makeRow = (
     return row.join('');
 };
 
-export const makePattern = (N: number) => {
+export const makePatternGrid = (N: number) => {
     const gridSize = N < 10 ? 10 : N + 1;
     const grid = makeGrid(gridSize);
 
@@ -39,5 +39,5 @@ export const makePattern = (N: number) => {
     return grid.reverse();
 };
 
-const result = makePattern(5);
+const result = makePatternGrid(5);
 console.log(result);
