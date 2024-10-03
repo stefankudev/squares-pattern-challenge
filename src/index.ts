@@ -38,6 +38,3 @@ export const makePatternGrid = (N: number) => {
 
     return grid.reverse();
 };
-
-const result = makePatternGrid(5);
-console.log(result);
