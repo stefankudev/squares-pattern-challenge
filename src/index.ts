@@ -30,7 +30,9 @@ const generatePattern = (N: number) => {
         grid[rowIndex] = generateRow(rowNumber);
     }
 
-    return grid.reverse();
+    const result = grid.reverse();
+    console.log(result);
+    return result;
 }
 
-console.log(generatePattern(9));
+generatePattern(9);
