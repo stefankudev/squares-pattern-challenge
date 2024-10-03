@@ -1,38 +1,43 @@
-const generateGrid = (gridSize: number = 10) => {
-    const row = new Array(gridSize).fill("⬜");
-    const grid = new Array(gridSize).fill(row);
+export const makeGrid = (size: number = 10) => {
+    const row = "⬜".repeat(size);
+    const grid = new Array(size).fill(row);
     return grid;
-}
+};
 
-const generateRow = (
+export const pattern = ['🟦', '🟥', '🟥'];
+
+export const makeRow = (
     currentRow: number,
+    gridSize: number,
 ) => {
-    const pattern = ['🟦', '🟥', '🟥'];
-    const longAssPattern = new Array(7).fill(pattern).flat();
+    const start = currentRow - 1;
+    const end = (currentRow * 2) - 1;
 
-    const startingPoint = currentRow - 1;
-    const endingPoint = (currentRow * 2) - 1;
-    const finalRow = longAssPattern.slice(startingPoint, endingPoint);
+    let row: Array<string> = [];
 
-    while (finalRow.length < 10) {
-        finalRow.push("⬜");
+    for (let position = start; position < end; position++) {
+        const squareIndex = position % pattern.length;
+        row.push(pattern[squareIndex]);
     }
 
-    return finalRow.toString().replaceAll(",", "");
-}
+    while (row.length < gridSize) {
+        row.push("⬜");
+    }
 
-const generatePattern = (N: number) => {
-    const gridSize = N + 1;
-    const grid = generateGrid(gridSize);
+    return row.join('');
+};
+
+export const makePattern = (N: number) => {
+    const gridSize = N < 10 ? 10 : N + 1;
+    const grid = makeGrid(gridSize);
 
     for (let rowIndex = 0; rowIndex <= N; rowIndex++) {
         const rowNumber = rowIndex + 1;
-        grid[rowIndex] = generateRow(rowNumber);
+        grid[rowIndex] = makeRow(rowNumber, gridSize);
     }
 
-    const result = grid.reverse();
-    console.log(result);
-    return result;
-}
+    return grid.reverse();
+};
 
-generatePattern(9);
+const result = makePattern(5);
+console.log(result);
