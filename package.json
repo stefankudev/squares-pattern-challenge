@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "test": "npx tsx ./src/index.ts",
-    "start": "npx tsx ./src/index.ts"
+    "build": "tsc --build --clean && tsc --build",
+    "test": "vitest",
+    "start": "npx tsx ./src/example.ts"
   },
   "keywords": [
     "challenge",
@@ -16,5 +17,9 @@
   "license": "ISC",
   "dependencies": {
     "typescript": "^5.6.2"
+  },
+  "devDependencies": {
+    "@tsconfig/node20": "^20.1.4",
+    "vitest": "^2.1.2"
   }
 }
