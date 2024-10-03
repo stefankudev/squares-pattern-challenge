@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc --build --clean && tsc --build",
     "test": "vitest",
-    "start": "npx tsx ./src/index.ts"
+    "start": "npx tsx ./src/example.ts"
   },
   "keywords": [
     "challenge",
