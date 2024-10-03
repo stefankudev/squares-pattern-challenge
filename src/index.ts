@@ -18,7 +18,7 @@ const generateRow = (
         finalRow.push("⬜");
     }
 
-    return finalRow.toString();
+    return finalRow.toString().replaceAll(",", "");
 }
 
 const generatePattern = (N: number) => {
