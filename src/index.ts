@@ -13,7 +13,7 @@ export const makeRow = (
     const start = currentRow - 1;
     const end = (currentRow * 2) - 1;
 
-    let row: Array<string> = [];
+    const row: Array<string> = [];
 
     for (let position = start; position < end; position++) {
         const squareIndex = position % pattern.length;
